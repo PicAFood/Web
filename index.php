@@ -3,38 +3,33 @@
     <head>
         <title>Pic A Food</title>
         <link href="index.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript">
-            navigator.geolocation.getCurrentPosition(GetLocation);
-            function GetLocation(location) {
-                var url = window.location.href;
-                if(!url.includes('lat')) {
-                    location.coords.latitude;
-                    location.coords.longitude;
-                    location.coords.accuracy;
-                    window.location.replace("https://webster.cs.washington.edu/students/akash221/PicFood/index.php?lat=" + location.coords.latitude + "&long=" + location.coords.longitude);
-                }
-            }
-        </script>
     </head>
     <body>
-        <h1>Pic-A-Food</h1> 
-        <?php 
-            if(!isset($_GET['lat'])) { ?>
-                <p>Loading page</p> 
-            <?php } else { s?>
-        <div id="container">
-            <?php 
-                include("sample.php");
-                $ll = $_GET['lat'].",".$_GET['long'];
-                $data = getPics('food',$ll);
-                foreach($data as $name => $link){ ?>
-                    <div title="<?= $name ?>" class="box">
-                        <span class="overlay"><?= $name ?></span>
-                        <div class="bg" style="background-image: url(<?= $link ?>);"></div>
-                    </div>
-                <?php }
-            ?>
+        <h1>Pic-A-Food</h1>  
+        <div class="sk-cube-grid">
+          <div class="sk-cube sk-cube1"></div>
+          <div class="sk-cube sk-cube2"></div>
+          <div class="sk-cube sk-cube3"></div>
+          <div class="sk-cube sk-cube4"></div>
+          <div class="sk-cube sk-cube5"></div>
+          <div class="sk-cube sk-cube6"></div>
+          <div class="sk-cube sk-cube7"></div>
+          <div class="sk-cube sk-cube8"></div>
+          <div class="sk-cube sk-cube9"></div>
         </div>
-        <?php } ?>
+        <script type="text/javascript">
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(successFunction);
+            } else {
+                alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+            }
+
+            function successFunction(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                window.location.replace("https://webster.cs.washington.edu/students/akash221/PicFood/foodgrid.php?lat=" + Math.round(lat*10000)/10000 + "&long=" + Math.round(long*10000)/10000);
+            }
+
+        </script> 
     </body>
 </html>

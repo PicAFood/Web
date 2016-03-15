@@ -1,4 +1,4 @@
 # Pic A Food
 
-## Overview
-This is a website to assist a user in picking a food to eat. Git is pretty cool.
+Hungry but not sure what to eat? Simply load up Pic A Food and be presented
+with a variety of tantilizing options based on your current location.

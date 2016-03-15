@@ -7,11 +7,10 @@
     </head>
     <body>
         <h1>Pic-A-Food</h1>
-        
         <div id="container">
             <?php 
                 include("sample.php");
-                $data = getPics('food', 'new york','47.6563,-145.3146');
+                $data = getPics('food','47.6567,-122.31003');
                 foreach($data as $name => $link){ ?>
                     <div title="<?= $name ?>" class="box">
                         <span class="overlay"><?= $name ?></span>
@@ -22,4 +21,12 @@
         </div>
         
     </body>
+    <script type="text/javascript">
+        navigator.geolocation.getCurrentPosition(GetLocation);
+        function GetLocation(location) {
+            alert(location.coords.latitude);
+            alert(location.coords.longitude);
+            alert(location.coords.accuracy);
+        }
+    </script>
 </html>

@@ -33,9 +33,8 @@ $TOKEN_SECRET = 'gwk1-MalV-8hiMkMKQakAUaGjfA';
 
 $API_HOST = 'api.yelp.com';
 $DEFAULT_TERM = 'dinner';
-$DEFAULT_LOCATION = 'San Francisco, CA';
 $SEARCH_LIMIT = 18;
-$DEFAULT_CLL = '47.6563,-122.3146';
+$DEFAULT_LL = '47.6563,-122.3146';
 $SEARCH_PATH = '/v2/search/';
 $BUSINESS_PATH = '/v2/business/';
 
@@ -109,17 +108,14 @@ function request($host, $path) {
  * @param    $location    The search location passed to the API 
  * @return   The JSON response from the request 
  */
-function search($term, $location, $cll) {
+function search($term, $ll) {
     $url_params = array();
     
     $url_params['term'] = $term ?: $GLOBALS['DEFAULT_TERM'];
-    $url_params['location'] = $location?: $GLOBALS['DEFAULT_LOCATION'];
-    $url_params['cll'] = $cll ?: $GLOBALS['DEFAULT_CLL'];
+    $url_params['ll'] = $cll ?: $GLOBALS['DEFAULT_LL'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
-    $search_path = str_replace('%2C', ',', $search_path);
-    print $search_path;
-    return request($GLOBALS['API_HOST'], '/v2/search?term=food&ll=47.6567,-122.31003');
+    return request($GLOBALS['API_HOST'], $search_path);
 }
 
 /**
@@ -159,7 +155,7 @@ function query_api($term, $location, $cll) {
 /**
  * gets pics
  */
-function getPics($term, $location, $cll) {
+function getPics($term, $ll) {
     $response = json_decode(search($term, $location, $cll));
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
@@ -167,7 +163,6 @@ function getPics($term, $location, $cll) {
         $url = $buisness_response->{'image_url'}."\n";
         $url = preg_replace('/\/(.){1,5}(.jpg)$/','/o.jpg',$url);
         $data[$buisness_name] = $url;
-        //$pic_urls[$i] = $url;
     }
     return $data;
 }
@@ -184,9 +179,4 @@ $options = getopt("", $longopts);
 
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
-
-$data = getPics('food', 'new york','47.6563,-145.3146');
-foreach($data as $name => $link){
-    print "$name is $link\n";   
-}
 ?>

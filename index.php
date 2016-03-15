@@ -3,19 +3,18 @@
     <head>
         <title>Pic A Food</title>
         <link href="index.css" type="text/css" rel="stylesheet" />
+        <script src="loading.js" type="text/javascript"></script>
     </head>
     <body>
         <h1>Pic-A-Food</h1>  
-        <div class="sk-cube-grid">
-          <div class="sk-cube sk-cube1"></div>
-          <div class="sk-cube sk-cube2"></div>
-          <div class="sk-cube sk-cube3"></div>
-          <div class="sk-cube sk-cube4"></div> 
-          <div class="sk-cube sk-cube5"></div>
-          <div class="sk-cube sk-cube6"></div>
-          <div class="sk-cube sk-cube7"></div>
-          <div class="sk-cube sk-cube8"></div>
-          <div class="sk-cube sk-cube9"></div>
+        <div id ="container">
+          <div class="sk-cube-grid">
+            <?php
+              for($i = 1; $i <= 18; $i++){ ?>
+                <div class="sk-cube sk-cube<?= $i ?> square"></div>
+              <?php }
+            ?>
+          </div>
         </div>
         <script type="text/javascript">
             if (navigator.geolocation) {

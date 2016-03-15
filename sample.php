@@ -140,7 +140,7 @@ function get_business($business_id) {
  * @param    $location    The location of the business to query
  */
 function query_api($term, $location, $cll) {     
-    $response = json_decode(search($term, $location,$cll));
+    $response = json_decode(search($term, $location, $cll));
     $business_id = $response->businesses[0]->id;
     
     print sprintf(

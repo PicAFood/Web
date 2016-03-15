@@ -163,6 +163,8 @@ function getPics($term, $location, $cll) {
     $response = json_decode(search($term, $location, $cll));
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
+        $buisness_name = $buisness_response->name;
+        print $buisness_name;
         $url = $buisness_response->{'image_url'}."\n";
         $url = preg_replace('/\/(.){1,5}(.jpg)$/','/o.jpg',$url);
         $pic_urls[$i] = $url;
@@ -184,5 +186,5 @@ $options = getopt("", $longopts);
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
 
-search('german food', $location , '37.77493,-122.3412');
+getPics($term, $location, $cll);
 ?>

@@ -50,9 +50,12 @@ body {
   display: inline-block;
   overflow: hidden;
   margin: 5px;
+  text-align: center;
+}
+
+.box {
   outline: 3px solid white;
   border: 1px solid black;
-  text-align: center;
 }
 
 #container {

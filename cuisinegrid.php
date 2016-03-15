@@ -10,7 +10,7 @@
             <?php
                 include("sample.php");
                 $ll = $_GET['lat'].",".$_GET['long'];
-                $data = getPics('thai',$ll);
+                $data = getPics('food',$ll);
                 foreach($data as $name => $link){ ?>
                     <div class="box">
                         <span class="overlay"><?= trim($name) ?></span>

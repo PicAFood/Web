@@ -155,6 +155,9 @@ function query_api($term, $location, $cll) {
     print "$response\n";
 }
 
+/**
+ * gets pics
+ */
 function getPics($term, $location, $cll) {
     $response = json_decode(search($term, $location, $cll));
     for($i = 0; $i < count($response->businesses); $i++) {

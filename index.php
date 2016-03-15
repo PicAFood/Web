@@ -11,11 +11,11 @@
         <div id="container">
             <?php 
                 include("sample.php");
-                $pic_urls = getPics('food', 'new york','47.6563,-145.3146');
-                foreach($pic_urls as $url){ ?>
-                    <div class="box">
-                        <span class="overlay"><?= $image ?></span>
-                        <div class="bg" style="background-image: url(<?= $url ?>);"></div>
+                $data = getPics('food', 'new york','47.6563,-145.3146');
+                foreach($data as $name => $link){ ?>
+                    <div title="<?= $name ?>" class="box">
+                        <span class="overlay"><?= $name ?></span>
+                        <div class="bg" style="background-image: url(<?= $link ?>);"></div>
                     </div>
                 <?php }
             ?>

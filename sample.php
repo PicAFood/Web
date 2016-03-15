@@ -164,13 +164,12 @@ function getPics($term, $location, $cll) {
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
         $buisness_name = $buisness_response->name;
-        print $buisness_name;
         $url = $buisness_response->{'image_url'}."\n";
         $url = preg_replace('/\/(.){1,5}(.jpg)$/','/o.jpg',$url);
-        $pic_urls[$i] = $url;
+        $data[$buisness_name] = $url;
+        //$pic_urls[$i] = $url;
     }
-    print ($term."  ".$location);
-    return $pic_urls;
+    return $data;
 }
 
 /**
@@ -186,5 +185,8 @@ $options = getopt("", $longopts);
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
 
-getPics($term, $location, $cll);
+$data = getPics('food', 'new york','47.6563,-145.3146');
+foreach($data as $name => $link){
+    print "$name is $link\n";   
+}
 ?>

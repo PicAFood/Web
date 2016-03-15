@@ -12,8 +12,8 @@
                 $ll = $_GET['lat'].",".$_GET['long'];
                 $data = getPics('food',$ll);
                 foreach($data as $name => $link){ ?>
-                    <div title="<?= $name ?>" class="box">
-                        <span class="overlay"><?= $name ?></span>
+                    <div class="box">
+                        <span class="overlay"><?= trim($name) ?></span>
                         <div class="bg" style="background-image: url(<?= $link ?>);"></div>
                     </div>
                 <?php } ?>

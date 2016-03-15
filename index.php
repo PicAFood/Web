@@ -14,8 +14,8 @@
                 $pic_urls = getPics('noodles', 'new york','47.6563,-122.3146');
                 foreach($pic_urls as $url){ ?>
                     <div class="box">
-                        <span class="overlay"><?php print $image;?></span>
-                        <div class="bg" style="background-image: url(<?php print $url ?>);"></div>
+                        <span class="overlay"><?= $image ?></span>
+                        <div class="bg" style="background-image: url(<?= $url ?>);"></div>
                     </div>
                 <?php }
             ?>

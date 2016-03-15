@@ -27,7 +27,8 @@
             function successFunction(position) {
                 var lat = position.coords.latitude;
                 var long = position.coords.longitude;
-                window.location.replace("https://students.washington.edu/akash221/PicFood/foodgrid.php?lat=" + Math.round(lat*10000)/10000 + "&long=" + Math.round(long*10000)/10000);
+                var url = window.location.href + "foodgrid.php?lat=" + Math.round(lat*10000)/10000 + "&long=" + Math.round(long*10000)/10000;
+                window.location.replace(url);
             }
 
         </script> 

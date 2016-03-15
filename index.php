@@ -3,15 +3,18 @@
     <head>
         <title>Pic A Food</title>
         <link href="index.css" type="text/css" rel="stylesheet" />
+        <script src="loading.js" type="text/javascript"></script>
     </head>
     <body>
         <h1>Pic-A-Food</h1>  
-        <div class="sk-cube-grid">
-          <?php
-            for($i = 1; $i <= 18; $i++){ ?>
-              <div class="sk-cube sk-cube<?= $i ?>"></div>
-            <?php }
-          ?>
+        <div id ="container">
+          <div class="sk-cube-grid">
+            <?php
+              for($i = 1; $i <= 18; $i++){ ?>
+                <div class="sk-cube sk-cube<?= $i ?> square"></div>
+              <?php }
+            ?>
+          </div>
         </div>
         <script type="text/javascript">
             if (navigator.geolocation) {

@@ -10,9 +10,10 @@
             <?php
                 include("sample.php");
                 $ll = $_GET['lat'].",".$_GET['long'];
-                $data = getPics('thai',$ll);
+                $type = $_GET['type'];
+                $data = getPics($type,$ll);
                 foreach($data as $name => $link){ ?>
-                    <div class="square box">
+                    <div class="square box" style="display: inline-block">
                         <span class="overlay"><?= trim($name) ?></span>
                         <div class="bg" style="background-image: url(<?= $link ?>);"></div>
                     </div>

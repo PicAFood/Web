@@ -117,8 +117,9 @@ function search($term, $location, $cll) {
     $url_params['cll'] = $cll ?: $GLOBALS['DEFAULT_CLL'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
-    
-    return request($GLOBALS['API_HOST'], $search_path);
+    $search_path = str_replace('%2C', ',', $search_path);
+    print $search_path;
+    return request($GLOBALS['API_HOST'], '/v2/search?term=food&ll=47.6567,-122.31003');
 }
 
 /**
@@ -162,7 +163,9 @@ function getPics($term, $location, $cll) {
     $response = json_decode(search($term, $location, $cll));
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
-        $pic_urls[$i] = $buisness_response->{'image_url'}."\n";
+        $url = $buisness_response->{'image_url'}."\n";
+        $url = preg_replace('/\/(.){1,5}(.jpg)$/','/o.jpg',$url);
+        $pic_urls[$i] = $url;
     }
     print ($term."  ".$location);
     return $pic_urls;
@@ -180,4 +183,6 @@ $options = getopt("", $longopts);
 
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
+
+search('german food', $location , '37.77493,-122.3412');
 ?>

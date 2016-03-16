@@ -34,7 +34,7 @@ $TOKEN_SECRET = 'gwk1-MalV-8hiMkMKQakAUaGjfA';
 $API_HOST = 'api.yelp.com';
 $DEFAULT_TERM = 'dinner';
 $SEARCH_LIMIT = 18;
-$DEFAULT_LL = '47.6563,-122.3146';
+$DEFAULT_LL = '40.1098,-88.2215';
 $SEARCH_PATH = '/v2/search/';
 $BUSINESS_PATH = '/v2/business/';
 
@@ -112,9 +112,10 @@ function search($term, $ll) {
     $url_params = array();
     
     $url_params['term'] = $term ?: $GLOBALS['DEFAULT_TERM'];
-    $url_params['ll'] = $cll ?: $GLOBALS['DEFAULT_LL'];
+    $url_params['ll'] = $ll ?: $GLOBALS['DEFAULT_LL'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
+    print($search_path);
     return request($GLOBALS['API_HOST'], $search_path);
 }
 
@@ -133,7 +134,7 @@ function get_business($business_id) {
  * gets pics
  */
 function getPics($term, $ll) {
-    $response = json_decode(search($term, $location, $cll));
+    $response = json_decode(search($term, $ll));
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
         $buisness_name = $buisness_response->name;
@@ -156,4 +157,6 @@ $options = getopt("", $longopts);
 
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
+
+search('doot','updoot');
 ?>

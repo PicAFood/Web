@@ -29,6 +29,9 @@ function updateAnimation() {
             delay = 0.1;
         }
         squares[i].style.animationDelay = delay + "s";
+        if (i % 2 == 1){
+            squares[i].style.backgroundColor = "#E27575";
+        }
         delay += 0.1;
     }
 }

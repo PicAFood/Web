@@ -5,9 +5,11 @@ var long;
 window.onload = function() {
     if (!document.cookie) {
         alert("first timer");
-        setLocationCookies();
-        lat = getCookie("lat");
-        long = getCookie("long");
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successFunction);
+        } else {
+            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+        }
     }
 
     updateAnimation();
@@ -36,25 +38,17 @@ function updateAnimation() {
     }
 }
 
-function setLocationCookies() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(successFunction);
-    } else {
-        alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
-    }
-}
-
 function successFunction(position) {
     document.cookie = "lat=" + position.coords.latitude;
     document.cookie = "long=" + position.coords.longitude;
 }
 
 function buisnessSelected(type) {
-
-
     console.log(type);
     document.getElementsByClassName('sk-cube-grid')[0].style.display = "block";
     var rows = document.querySelectorAll('#cuisines');
+    var lat  = getCookie("lat");
+    var long = getCookie("long");
     for (var i = 0; i < rows.length; i++) {
         rows[i].style.display = "none";
     }

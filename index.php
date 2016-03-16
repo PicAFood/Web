@@ -14,7 +14,7 @@
             $cuisines["Chinese"] = "http://houston.eat24hours.com/files/cuisines/v4/chinese.jpg"; ?>
             <div id="cuisines">
             <?php foreach($cuisines as $name => $link) { ?>
-                <div class="square box" onclick="buisnessSelected(this.id)" id="<?= $name ?>">
+                <div class="square box" onclick="buisnessSelected(this.id)" id="<?=$name?>">
                     <span class="overlay"><?= trim($name) ?></span>
                     <div class="bg" style="background-image: url(<?= $link ?>);"></div>
                 </div>

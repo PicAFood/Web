@@ -1,12 +1,12 @@
 window.onload = function () {
 	updateAnimation();
-}
+};
 
 // so that animation changes as the number of squares
 // on the page change
 window.onresize = function () {
 	updateAnimation();
-}
+};
 
 // updates the animations of the loading boxes
 // based on the width of the window to achieve
@@ -17,7 +17,7 @@ function updateAnimation() {
 	var delay = 0.1;
 	for(var i = 0; i < squares.length; i++){
 		// if new row, reset delay
-		if(i % squaresInRow == 0){
+		if(i % squaresInRow === 0) {
 			delay = 0.1;
 		}
 		squares[i].style.animationDelay= delay + "s";

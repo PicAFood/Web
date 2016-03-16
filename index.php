@@ -55,33 +55,3 @@
         </div>
     </body>
 </html>
-<script type="text/javascript">
-  var type = "";
-  var lat = getCookie("lat");
-  var long = getCookie("long");
-
-  function buisnessSelected(type) {
-    console.log(type);
-    document.getElementsByClassName('sk-cube-grid')[0].style.display = "block";
-    var rows = document.querySelectorAll('#cuisines');
-    for(var i = 0; i < rows.length; i++) {
-      rows[i].style.display = "none";
-    }
-    if(!isNaN(lat) && !isNaN(long)) {
-      redirect(type, lat, long);
-    } else {
-      console.log("lat and long not set");
-    }
-  }
-
-  function redirect(type, lat, long) {
-    var url = window.location.href + "foodgrid.php?lat=" + Math.round(lat*10000)/10000 + "&long=" + Math.round(long*10000)/10000 + "&type=" + type;
-    window.location.replace(url);
-  }
-
-  function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-  }
-</script> 

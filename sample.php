@@ -34,7 +34,7 @@ $TOKEN_SECRET = 'gwk1-MalV-8hiMkMKQakAUaGjfA';
 $API_HOST = 'api.yelp.com';
 $DEFAULT_TERM = 'dinner';
 $SEARCH_LIMIT = 18;
-$DEFAULT_LL = '47.6563,-122.3146';
+$DEFAULT_LL = '40.1097,-88.2215';
 $SEARCH_PATH = '/v2/search/';
 $BUSINESS_PATH = '/v2/business/';
 
@@ -112,7 +112,7 @@ function search($term, $ll) {
     $url_params = array();
     
     $url_params['term'] = $term ?: $GLOBALS['DEFAULT_TERM'];
-    $url_params['ll'] = $cll ?: $GLOBALS['DEFAULT_LL'];
+    $url_params['ll'] = $ll ?: $GLOBALS['DEFAULT_LL'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
     return request($GLOBALS['API_HOST'], $search_path);

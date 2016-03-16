@@ -115,7 +115,6 @@ function search($term, $ll) {
     $url_params['ll'] = $ll ?: $GLOBALS['DEFAULT_LL'];
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     $search_path = $GLOBALS['SEARCH_PATH'] . "?" . http_build_query($url_params);
-    print($search_path);
     return request($GLOBALS['API_HOST'], $search_path);
 }
 
@@ -158,5 +157,4 @@ $options = getopt("", $longopts);
 $term = $options['term'] ?: '';
 $location = $options['location'] ?: '';
 
-search('doot','updoot');
 ?>

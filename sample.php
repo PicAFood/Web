@@ -133,7 +133,7 @@ function get_business($business_id) {
  * gets pics
  */
 function getPics($term, $ll) {
-    $response = json_decode(search($term, $location, $ll));
+    $response = json_decode(search($term, $ll));
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
         $buisness_name = $buisness_response->name;

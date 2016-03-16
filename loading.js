@@ -1,10 +1,5 @@
-var type = "";
-var lat;
-var long;
-
 window.onload = function() {
     if (!document.cookie) {
-        alert("first timer");
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successFunction);
         } else {

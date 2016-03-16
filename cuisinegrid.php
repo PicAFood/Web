@@ -5,7 +5,10 @@
         <link href="index.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Pic-A-Food</h1> 
+        <?php
+          include("common.php"); 
+          displayHead();
+        ?>
         <div id="container">
             <?php
                 $cuisines;

@@ -84,9 +84,9 @@ body {
   z-index: -100;
   width: 100%;
   height: 100%;
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
-  transition: background-size 0.2s ease-in;
+  transition: transform 0.2s ease-in;
 }
 
 .overlay {
@@ -103,12 +103,18 @@ body {
 }
 
 .box:hover .bg {
-  background-size: 125% 125%;
+  -webkit-transform: scale(1.25, 1.25);
+  transform: scale(1.25, 1.25);
   opacity: 0.5;
 }
 
 .box:hover {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 h1, #container {

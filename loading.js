@@ -17,8 +17,13 @@ function updateAnimation() {
 	var delay = 0.1;
 	for(var i = 0; i < squares.length; i++){
 		// if new row, reset delay
+<<<<<<< HEAD
 		if(i % squaresInRow === 0) {
 			delay = 0.1;
+=======
+		if(i % squaresInRow == 0){
+			delay = 0.1; 
+>>>>>>> 5e49d03cf3154998eab7251a91f5068ebb332170
 		}
 		squares[i].style.animationDelay= delay + "s";
 		delay += 0.1;

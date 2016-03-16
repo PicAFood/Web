@@ -54,7 +54,7 @@
 }
 
 body {
-  background-color: rgb(65, 69, 78);
+  background-color: #8C1C13;
 }
 
 .square {
@@ -73,6 +73,7 @@ body {
 }
 
 #container {
+  color: white;
   font-size: 0;
   margin: 5% auto;
 }
@@ -114,15 +115,18 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
+  text-shadow: 0px 0px 20px #000;
 }
 
 h1, #container {
   text-align: center;
-  color: white;
   margin: 5% auto;
 }
 
 h1 {
+  background-size: 20% auto;
+  background-image: url("http://sweetclipart.com/multisite/sweetclipart/files/pattern_picnic_cloth.png");
   font-size: 60pt;
+  padding-bottom: 15px;
 }

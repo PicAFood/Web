@@ -1,3 +1,7 @@
+var type = "";
+var lat;
+var long;
+
 window.onload = function() {
     if (!document.cookie) {
         alert("first timer");
@@ -8,10 +12,6 @@ window.onload = function() {
 
     updateAnimation();
 };
-
-var type = "";
-var lat;
-var long;
 
 // so that animation changes as the number of squares
 // on the page change

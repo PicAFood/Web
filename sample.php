@@ -34,11 +34,7 @@ $TOKEN_SECRET = 'gwk1-MalV-8hiMkMKQakAUaGjfA';
 $API_HOST = 'api.yelp.com';
 $DEFAULT_TERM = 'dinner';
 $SEARCH_LIMIT = 18;
-<<<<<<< HEAD
 $DEFAULT_LL = '40.1098,-88.2215';
-=======
-$DEFAULT_LL = '40.1097,-88.2215';
->>>>>>> 0de2583abead1abb2b1bdd9d2152c05afe7500e4
 $SEARCH_PATH = '/v2/search/';
 $BUSINESS_PATH = '/v2/business/';
 

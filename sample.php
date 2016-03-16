@@ -126,30 +126,7 @@ function search($term, $ll) {
  */
 function get_business($business_id) {
     $business_path = $GLOBALS['BUSINESS_PATH'] . $business_id;
-    
     return request($GLOBALS['API_HOST'], $business_path);
-}
-
-/**
- * Queries the API by the input values from the user 
- * 
- * @param    $term        The search term to query
- * @param    $location    The location of the business to query
- */
-function query_api($term, $location, $cll) {     
-    $response = json_decode(search($term, $location, $cll));
-    $business_id = $response->businesses[0]->id;
-    
-    print sprintf(
-        "%d businesses found, querying business info for the top result \"%s\"\n\n",         
-        count($response->businesses),
-        $business_id
-    );
-    
-    $response = get_business($business_id);
-    
-    print sprintf("Result for business \"%s\" found:\n", $business_id);
-    print "$response\n";
 }
 
 /**

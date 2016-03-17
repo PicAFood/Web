@@ -59,11 +59,14 @@ function buisnessSelected(type) {
     }
 }
 
+// do we need the type variable here?
 function redirect(type, lat, long) {
     var url = window.location.href + "foodgrid.php?lat=" + Math.round(lat * 10000) / 10000 + "&long=" + Math.round(long * 10000) / 10000 + "&type=" + type;
     window.location.replace(url);
 }
 
+// goes through document.cookie and finds the cookie with a given name
+// assumes the cookie exists
 function getCookie(name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");

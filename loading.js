@@ -1,4 +1,5 @@
 window.onload = function() {
+    // if there are no cookies on this page, then set location as cookies
     if (!document.cookie) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successFunction);
@@ -36,6 +37,7 @@ function updateAnimation() {
     }
 }
 
+// gets called when the location is sucessfully retrieved
 function successFunction(position) {
     document.cookie = "lat=" + position.coords.latitude;
     document.cookie = "long=" + position.coords.longitude;

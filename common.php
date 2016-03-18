@@ -32,4 +32,11 @@
         		"https://vacationidahosprings.files.wordpress.com/2011/07/coffee-cups.jpg";
         return $sideCuisines;
 	}
+
+	function displaySquare($name, $link) { ?>
+		<div class="square box" onclick="buisnessSelected(this.id)" id="<?= $name ?>">
+            <span class="overlay"><?= trim($name) ?></span>
+            <div class="bg" style="background-image: url(<?= $link ?>);"></div>
+        </div>
+	<?php }
 ?>

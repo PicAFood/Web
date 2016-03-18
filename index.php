@@ -15,24 +15,18 @@
             $mainCuisines = getMainCuisines();
           ?>
           <div id="cuisines">
-            <?php foreach($mainCuisines as $name => $link) { ?>
-                <div class="square box" onclick="buisnessSelected(this.id)" id="<?= $name ?>">
-                    <span class="overlay"><?= trim($name) ?></span>
-                    <div class="bg" style="background-image: url(<?= $link ?>);"></div>
-                </div>
-            <?php } ?>
+            <?php foreach($mainCuisines as $name => $link) { 
+              displaySquare($name, $link);    
+            } ?>
           </div>
 
           <?php
             $sideCuisines = getSideCuisines();
           ?>
           <div id="cuisines">
-            <?php foreach($sideCuisines as $name => $link) { ?>
-                <div class="square box" onclick="buisnessSelected(this.id)" id="<?= $name ?>">
-                    <span class="overlay"><?= trim($name) ?></span>
-                    <div class="bg" style="background-image: url(<?= $link ?>);"></div>
-                </div>
-            <?php } ?>
+            <?php foreach($sideCuisines as $name => $link) {
+                displaySquare($name, $link);
+            } ?>
           </div>
 
           <div class="sk-cube-grid" style="display: none;">

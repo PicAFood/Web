@@ -4,7 +4,9 @@ window.onload = function() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successFunction);
         } else {
-            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+            alert('It seems like Geolocation, which is required for this page' + 
+                ', is not enabled in your browser.' + 
+                ' Please use a browser which supports it.');
         }
     }
 
@@ -39,8 +41,15 @@ function updateAnimation() {
 
 // gets called when the location is sucessfully retrieved
 function successFunction(position) {
-    document.cookie = "lat=" + position.coords.latitude;
-    document.cookie = "long=" + position.coords.longitude;
+    // cookies expire in 1 hour
+    var date = new Date();
+    date.setTime(date.getTime()+(60*60*1000));
+    document.cookie = 
+            "lat=" + position.coords.latitude + 
+            "; expires=" + date.toUTCString();
+    document.cookie = 
+            "long=" + position.coords.longitude + 
+            "; expires=" + date.toUTCString();
 }
 
 function buisnessSelected(type) {
@@ -59,9 +68,13 @@ function buisnessSelected(type) {
     }
 }
 
-// do we need the type variable here?
+// redirects the user to the foodgrid page with given coordinates
+// and type of food to search nearby for
 function redirect(type, lat, long) {
-    var url = window.location.href + "foodgrid.php?lat=" + Math.round(lat * 10000) / 10000 + "&long=" + Math.round(long * 10000) / 10000 + "&type=" + type;
+    var url = window.location.href + 
+            "foodgrid.php?lat=" +  Math.round(lat * 10000) / 10000 +
+            "&long=" + Math.round(long * 10000) / 10000 + 
+            "&type=" + type;
     window.location.replace(url);
 }
 

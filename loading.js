@@ -1,11 +1,11 @@
 window.onload = function() {
-    // if there are no cookies on this page, then set location as cookies
+    // if there are no cookies on this page, then set location cookies
     if (!document.cookie) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successFunction);
         } else {
-            alert('It seems like Geolocation, which is required for this page' + 
-                ', is not enabled in your browser.' + 
+            alert('It seems like Geolocation, which is required for this page,' + 
+                ' is not enabled in your browser.' + 
                 ' Please use a browser which supports it.');
         }
     }
@@ -14,7 +14,7 @@ window.onload = function() {
 };
 
 // so that animation changes as the number of squares
-// on the page change
+// on the page change. note: somewhat laggy/unresponsive
 window.onresize = function() {
     updateAnimation();
 };
@@ -32,6 +32,7 @@ function updateAnimation() {
             delay = 0.1;
         }
         squares[i].style.animationDelay = delay + "s";
+        // if odd square, make it a nice light red color
         if (i % 2 == 1){
             squares[i].style.backgroundColor = "#E27575";
         }
@@ -52,9 +53,12 @@ function successFunction(position) {
             "; expires=" + date.toUTCString();
 }
 
-function buisnessSelected(type) {
-    console.log(type);
+// takes in a type of cuisine and redirects to a foodgrid showing
+// that type of food nearby
+function cuisineSelected(type) {
+    // display loading animation by making the loading boxes visible ...
     document.getElementsByClassName('sk-cube-grid')[0].style.display = "block";
+    // and making everything else not visible
     var rows = document.querySelectorAll('#cuisines');
     var lat  = getCookie("lat");
     var long = getCookie("long");
@@ -69,7 +73,8 @@ function buisnessSelected(type) {
 }
 
 // redirects the user to the foodgrid page with given coordinates
-// and type of food to search nearby for
+// and type of food to search nearby for. lat and long rounded
+// to 4 decimal places to efficiency in searching
 function redirect(type, lat, long) {
     var url = window.location.href + 
             "foodgrid.php?lat=" +  Math.round(lat * 10000) / 10000 +

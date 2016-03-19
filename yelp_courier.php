@@ -112,7 +112,8 @@ function get_business($business_id) {
 }
 
 /**
- * gets pics
+ * returns an associative array linking business names to their
+ * picrure url, using the yelp API
  */
 function getPics($term, $ll) {
     $response = json_decode(search($term, $ll));

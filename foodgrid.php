@@ -12,11 +12,11 @@
         <div id="container">
             <?php
                 include("sample.php");
-                $ll = $_GET['lat'].",".$_GET['long'];
+                $ll = $_GET['lat']. ",". $_GET['long'];
                 $type = $_GET['type'];
                 $data = getPics($type,$ll);
                 foreach($data as $name => $link){ ?>
-                    <div class="square box" style="display: inline-block">
+                    <div class="square box" onclick="viewBusiness(this)"style="display: inline-block">
                         <span class="overlay"><?= trim($name) ?></span>
                         <div class="bg" style="background-image: url(<?= $link ?>);"></div>
                     </div>

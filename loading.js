@@ -40,7 +40,7 @@ function updateAnimation() {
                 squares[i].style.backgroundColor = "#E27575";
             }
         } else {
-            if (i % 2 == 0) {
+            if (i % 2 === 0) {
                 squares[i].style.backgroundColor = "#E27575";
             }
         }

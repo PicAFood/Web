@@ -47,12 +47,6 @@
   font-style: normal;
 }
 
-* {
-  font-family: 'BELLABOO-Regular';
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #8C1C13;
 }
@@ -129,4 +123,10 @@ h1 {
   background-image: url("http://sweetclipart.com/multisite/sweetclipart/files/pattern_picnic_cloth.png");
   font-size: 60pt;
   padding-bottom: 15px;
+}
+
+h1, div, span {
+  font-family: 'BELLABOO-Regular';
+  margin: 0;
+  padding: 0;
 }

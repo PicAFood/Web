@@ -11,17 +11,17 @@
 	# anything added here will automatically be shown
 	function getMainCuisines() {
 		$mainCuisines["American"] = 
-				"http://las-vegas.eat24hours.com/files/cuisines/v4/american.jpg";
+				"cuisines/american.png";
         $mainCuisines["Thai"] = 
-        		"http://www.thaidelightalaska.com/backend/uploads/products/34-banner-20150805103120B5.jpg";
+        		"cuisines/thai.png";
         $mainCuisines["Vietnamese"] = 
-        		"http://media.crossingtravel.com/files/tag/2015/09/26/image-163.jpg";
+        		"cuisines/vietnamese.png";
         $mainCuisines["Chinese"] = 
-        		"http://houston.eat24hours.com/files/cuisines/v4/chinese.jpg"; 
+        		"cuisines/chinese.png"; 
         $mainCuisines["Greek"] = 
-        		"https://img.grouponcdn.com/deal/mNM6qDkg3TZ4Kv4x6gh7/Ua-700x420/v1/c700x420.jpg";
+        		"cuisines/greek.png";
         $mainCuisines["Indian"] = 
-        		"http://insidenirvana.com/wp-content/uploads/2015/08/best-indian-food-new-orleans.jpg"; 
+        		"cuisines/indian.png"; 
         return $mainCuisines;
 	}
 
@@ -29,13 +29,13 @@
 	# anything added here will automatically be shown
 	function getSideCuisines() {
 		$sideCuisines["Ice Cream"] = 
-				"http://www.newhealthadvisor.com/images/1HT02932/ice%20cream.jpg"; 
+				"cuisines/icecream.png"; 
         $sideCuisines["Bubble Tea"] = 
-        		"http://media1.fdncms.com/thecoast/imager/georges-bubble-tea/u/zoom/4683750/george_sbubbletea1.jpg";
+        		"cuisines/bubbletea.jpg";
  	    $sideCuisines["Pastries"] = 
- 	    		"http://www.duraneurosandwich.com/wp-content/uploads/2014/05/Pastries-back1-2400.jpg"; 
+ 	    		"cuisines/pastries.png"; 
         $sideCuisines["Coffee"] = 
-        		"https://vacationidahosprings.files.wordpress.com/2011/07/coffee-cups.jpg";
+        		"cuisines/coffee.jpg";
         return $sideCuisines;
 	}
 

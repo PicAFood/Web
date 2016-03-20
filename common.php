@@ -11,17 +11,17 @@
 	# anything added here will automatically be shown
 	function getMainCuisines() {
 		$mainCuisines["American"] = 
-				"cuisines/american.png";
+				"cuisines/american.jpg";
         $mainCuisines["Thai"] = 
-        		"cuisines/thai.png";
+        		"cuisines/thai.jpg";
         $mainCuisines["Vietnamese"] = 
-        		"cuisines/vietnamese.png";
+        		"cuisines/vietnamese.jpg";
         $mainCuisines["Chinese"] = 
-        		"cuisines/chinese.png"; 
+        		"cuisines/chinese.jpg"; 
         $mainCuisines["Greek"] = 
-        		"cuisines/greek.png";
+        		"cuisines/greek.jpg";
         $mainCuisines["Indian"] = 
-        		"cuisines/indian.png"; 
+        		"cuisines/indian.jpg"; 
         return $mainCuisines;
 	}
 
@@ -33,7 +33,7 @@
         $sideCuisines["Bubble Tea"] = 
         		"cuisines/bubbletea.jpg";
  	    $sideCuisines["Pastries"] = 
- 	    		"cuisines/pastries.png"; 
+ 	    		"cuisines/pastries.jpg"; 
         $sideCuisines["Coffee"] = 
         		"cuisines/coffee.jpg";
         return $sideCuisines;

@@ -13,12 +13,6 @@ window.onload = function() {
     updateAnimation();
 };
 
-// so that animation changes as the number of squares
-// on the page change. note: somewhat laggy/unresponsive
-window.onresize = function() {
-    updateAnimation();
-};
-
 // updates the animations of the loading boxes
 // based on the width of the window to achieve
 // a left to right ease-in/ease-out animation

@@ -10,32 +10,22 @@
 	# list of main cuisines to be displayed. called in index.php
 	# anything added here will automatically be shown
 	function getMainCuisines() {
-		$mainCuisines["American"] = 
-				"cuisines/american.jpg";
-        $mainCuisines["Thai"] = 
-        		"cuisines/thai.jpg";
-        $mainCuisines["Vietnamese"] = 
-        		"cuisines/vietnamese.jpg";
-        $mainCuisines["Chinese"] = 
-        		"cuisines/chinese.jpg"; 
-        $mainCuisines["Greek"] = 
-        		"cuisines/greek.jpg";
-        $mainCuisines["Indian"] = 
-        		"cuisines/indian.jpg"; 
+		$mainCuisines["American"] = "cuisines/american.jpg";
+        $mainCuisines["Thai"] = "cuisines/thai.jpg";
+        $mainCuisines["Vietnamese"] = "cuisines/vietnamese.jpg";
+        $mainCuisines["Chinese"] = "cuisines/chinese.jpg"; 
+        $mainCuisines["Greek"] = "cuisines/greek.jpg";
+        $mainCuisines["Indian"] = "cuisines/indian.jpg"; 
         return $mainCuisines;
 	}
 
 	# list of side cuisines to be displayed. called in index.php
 	# anything added here will automatically be shown
 	function getSideCuisines() {
-		$sideCuisines["Ice Cream"] = 
-				"cuisines/icecream.png"; 
-        $sideCuisines["Bubble Tea"] = 
-        		"cuisines/bubbletea.jpg";
- 	    $sideCuisines["Pastries"] = 
- 	    		"cuisines/pastries.jpg"; 
-        $sideCuisines["Coffee"] = 
-        		"cuisines/coffee.jpg";
+		$sideCuisines["Ice Cream"] = "cuisines/icecream.png"; 
+        $sideCuisines["Bubble Tea"] = "cuisines/bubbletea.jpg";
+ 	    $sideCuisines["Pastries"] = "cuisines/pastries.jpg"; 
+        $sideCuisines["Coffee"] = "cuisines/coffee.jpg";
         return $sideCuisines;
 	}
 

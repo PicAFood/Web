@@ -120,16 +120,21 @@ function getPics($term, $ll) {
     for($i = 0; $i < count($response->businesses); $i++) {
         $buisness_response = json_decode(get_business(transliterateString($response->businesses[$i]->id)));
         $buisness_name = $buisness_response->name;
-        $url = $buisness_response->{'image_url'}."\n";
+        $url = $buisness_response->{'image_url'};
+        $buisness_url = $buisness_response->{'url'};
         $url = preg_replace('/\/(.){1,5}(.jpg)$/','/o.jpg',$url);
-        $data[$buisness_name] = $url;
+        $data[$buisness_name] = $url."|".$buisness_url;
     }
+    print_r($data);
     return $data;
 }
 
 /**
  * User input is handled here 
  */
+
+getPics('thai','40.1098,-88.2215');
+
 $longopts  = array(
     "term::",
     "location::",

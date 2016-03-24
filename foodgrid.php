@@ -12,15 +12,19 @@
         ?>
         <div id="container">
             <?php
-                include("sample.php");
+                include("yelp_courier.php");
                 $ll = $_GET['lat']. ",". $_GET['long'];
                 $type = $_GET['type'];
                 $data = getPics($type,$ll);
-                foreach($data as $name => $link){ ?>
-                    <div class="square box" onclick="viewBusiness(this.id)" style="display: inline-block" id="<?=$name?>">
-                        <span class="overlay"><?= trim($name) ?></span>
-                        <div class="bg" style="background-image: url(<?= $link ?>);"></div>
-                    </div>
+                foreach($data as $name => $link){ 
+                    list($image_link, $business_link) = explode("|", $link)
+                    ?>
+                    <a href="<?= $business_link ?>">
+                        <div class="square box" onclick="viewBusiness(this.id)" style="display: inline-block" id="<?=$name?>">
+                            <span class="overlay"><?= trim($name) ?></span>
+                            <div class="bg" style="background-image: url(<?= $image_link ?>);"></div>
+                        </div>
+                    </a>
                 <?php } ?>
         </div>
     </body>

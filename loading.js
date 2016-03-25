@@ -1,7 +1,8 @@
 window.onload = function() {
     // if there are no cookies on this page, then set location cookies
-    if (!document.cookie) {
+    if (!getCookie("lat")) {
         if (navigator.geolocation) {
+            console.log("no cookie");
             navigator.geolocation.getCurrentPosition(successFunction);
         } else {
             alert('It seems like Geolocation, which is required for this page,' + 

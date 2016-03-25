@@ -9,8 +9,6 @@ window.onload = function() {
                 ' Please use a browser which supports it.');
         }
     }
-
-    updateAnimation();
 };
 
 // updates the animations of the loading boxes
@@ -51,6 +49,8 @@ function successFunction(position) {
 // takes in a type of cuisine and redirects to a foodgrid showing
 // that type of food nearby
 function cuisineSelected(type) {
+    // build the loading animation
+    updateAnimation();
     // display loading animation by making the loading boxes visible ...
     document.getElementsByClassName('sk-cube-grid')[0].style.display = "block";
     // and making everything else not visible

@@ -10,8 +10,6 @@ window.onload = function() {
                 ' Please use a browser which supports it.');
         }
     }
-
-    updateAnimation();
 };
 
 // updates the animations of the loading boxes
@@ -21,23 +19,15 @@ function updateAnimation() {
     var squaresInRow = Math.floor(window.innerWidth / 220);
     var squares = document.querySelectorAll(".loading");
     var delay = 0.1;
-    var flip = true;
     for (var i = 0; i < squares.length; i++) {
         // if new row, reset delay
         if (i % squaresInRow === 0) {
-            flip = !flip;
             delay = 0.1;
         }
         squares[i].style.animationDelay = delay + "s";
         // if odd square, make it a nice light red color
-        if (flip){
-            if (i % 2 == 1) {
-                squares[i].style.backgroundColor = "#E27575";
-            }
-        } else {
-            if (i % 2 === 0) {
-                squares[i].style.backgroundColor = "#E27575";
-            }
+        if (i % 2 == 1) {
+            squares[i].style.backgroundColor = "#E27575";
         }
         
         delay += 0.1;
@@ -60,6 +50,8 @@ function successFunction(position) {
 // takes in a type of cuisine and redirects to a foodgrid showing
 // that type of food nearby
 function cuisineSelected(type) {
+    // build the loading animation
+    updateAnimation();
     // display loading animation by making the loading boxes visible ...
     document.getElementsByClassName('sk-cube-grid')[0].style.display = "block";
     // and making everything else not visible

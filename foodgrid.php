@@ -19,8 +19,8 @@
                 foreach($data as $name => $link){ 
                     list($image_link, $business_link) = explode("|", $link)
                     ?>
-                    <a href="<?= $business_link ?>">
-                        <div class="square box" onclick="viewBusiness(this.id)" style="display: inline-block" id="<?=$name?>">
+                    <a href="<?= $business_link ?>" target="_blank">
+                        <div class="square box" style="display: inline-block" id="<?=$name?>">
                             <span class="overlay"><?= trim($name) ?></span>
                             <div class="bg" style="background-image: url(<?= $image_link ?>);"></div>
                         </div>
